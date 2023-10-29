@@ -26,7 +26,7 @@ nunjucks.configure('views', {
 //   res.render('index.html', {users: data})
 // })
 
-app.get('/index', (req, res) => {
+app.get('/', (req, res) => {
   res.render('index.html')
 })
 
