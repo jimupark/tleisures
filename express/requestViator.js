@@ -1,3 +1,5 @@
+const fetch = require('node-fetch')
+
 async function searchProduct(destinationId, startNumber){
     const searchResult = await fetch('https://api.sandbox.viator.com/partner/products/search',{
         method:'post',
