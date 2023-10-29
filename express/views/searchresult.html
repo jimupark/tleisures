@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylee2.css">
+    <link href="https://db.onlinewebfonts.com/c/ad7151f90039f421ef9eda4996cb65db?family=Avenir+LT+Pro+95+Black" rel="stylesheet">
+    <title>Mobile-Friendly Travel Search</title>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo">
+    </header>
+    <main>
+        <section>
+            <form class="search-box" action="/searchresult" method="get">
+                <input type="text" name="destination" id="destination" placeholder="Where are you going" value="{{destination}}">
+                <input type="date" name="departureDate" id="departure-date">
+                <button type="submit" id="search-button">Search</button>
+            </form>
+        </section>
+
+        <!-- 
+            if users.length !==0 , results-container
+            else , '새로운 프론트앤드 코드 '
+         -->
+        {% if users.length !==0 %}
+        <div class="results-container">
+            <!-- Search results will go here -->
+            {% for u in users %}
+            <a href="{{u.productUrl}}">
+                <div class="result-box">
+                    <img src="{{u.images[0].variants[2].url}}" alt="Result Image">
+                    <div class="result-box-info">
+                        <h3>{{u.title}}</h3>
+                        {% if u.reviews.combinedAverageRating !==undefined %}
+                            <div class="result-box-review">
+                                <div class="result-box-review-star">Review Score</div>
+                                <div class="result-box-review-score">{{u.reviews.combinedAverageRating | round(1)}}</div>
+                            </div>
+                            {% else %}
+
+                        {% endif %}
+                        <div class="result-box-tandp">
+                            <!-- tandp = time and price -->
+                            <!-- <div class="result-box-time">© © © © ©</div> -->
+                            <div>
+                                <div>viator</div>
+                                <div class="result-box-price">{{u.pricing.summary.fromPrice}}{{u.pricing.currency}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+            
+            <div class="pagenation">
+                {% if currentPage!==1 %}
+                <a href="?n={{currentPage-1}}&destination={{destination}}&departureDate={{departureDate}}"> <img src="/leftarrow.svg" alt="" class="leftarrow"> </a>
+                {% endif %}
+
+                {% if currentPage < totalPage %}
+                <a href="?n={{currentPage+1}}&destination={{destination}}&departureDate={{departureDate}}"> <img src="/rightarrow.svg" alt="" class="rightarrow"> </a>
+                {% endif %}             
+             </div>
+        </div>
+        {% else %}
+            <h3>we could not found the treasures matching {{destination}}</h3> 
+            <h4>How about new search?</h4>
+            <div class="noresult">
+                <img src="/noresultimage.jpg" alt="" class="noresultimage">
+            </div>
+        {% endif %}
+    </main>
+</body>
+</html>
+
+<!--  1.화살표 까지 css 얼추 해놓고  2. 가비아가서 인터넷 주소 쇼핑 3.서버에 올려서 핸드폰으로 해볼수 있는지 
+
+
+   

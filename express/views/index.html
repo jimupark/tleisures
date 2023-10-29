@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylee.css">
+    <link href="https://db.onlinewebfonts.com/c/ad7151f90039f421ef9eda4996cb65db?family=Avenir+LT+Pro+95+Black" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
+    <title>TLEISURE</title>
+</head>
+<body>
+    <header>
+        <h1>S.Travel Manager</h1>
+    </header>
+    <!-- <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav> -->
+    <main>
+        <section>
+            <h2>
+                <img src="https://cdn.discordapp.com/attachments/1060989264986374165/1140995887594741820/b498e9b0-2d6b-40c4-8df8-da3b07ead6cd.jpg" alt="">
+            </h2>
+            <p>Make your trip</p>
+            <p class="p_special">special with us</p>
+        </section>
+        <section>
+            <form class="search-box" action="/searchresult" method="get">
+                <input type="text" name="destination" id="destination" placeholder="Where are you going?">
+                <input type="date" name="departureDate" id="departure-date">
+                <input type="hidden" name="n" value="1">
+                <button type="submit" id="search-button">Search</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div>&copy; 2023 Your Company. All rights reserved.</div>
+    </footer>
+    <script src="/autocomplete.js"></script>
+</body>
+</html>
