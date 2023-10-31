@@ -1,6 +1,10 @@
+const env = require('dotenv');
+env.config();
+
 // Fetch data from the API and store it in Local Storage
 function fetchDataAndStoreLocally() {
-fetch('http://localhost:3000/destinationName')
+    let host = process.env.host
+fetch( host + '/destinationName')
     .then(response => response.json())
     .then(data => {
         // 데이터를 로컬 스토리지에 저장
