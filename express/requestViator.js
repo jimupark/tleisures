@@ -1,6 +1,15 @@
 const fetch = require('node-fetch')
 
-async function searchProduct(destinationId, startNumber){
+async function searchProduct(destinationId, startNumber, startDate){
+    let filtering = {}
+
+    if(destinationId !== undefined) {
+        filtering.destination = destinationId
+    }
+    if(startDate !== undefined) {
+        filtering.startDate = startDate
+    }
+    
     const searchResult = await fetch('https://api.sandbox.viator.com/partner/products/search',{
         method:'post',
         headers:{
@@ -10,9 +19,7 @@ async function searchProduct(destinationId, startNumber){
             'Content-Type': 'application/json'
         },
         body :JSON.stringify({
-            "filtering": {
-                "destination": destinationId 
-            },
+            "filtering": filtering,
             "pagination": {
                 "start": startNumber,
                 "count": 25

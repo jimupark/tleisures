@@ -8,13 +8,14 @@
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="Logo">
+        <a href="/"><img src="logo.png" alt="Logo"></a>
     </header>
     <main>
         <section>
             <form class="search-box" action="/searchresult" method="get">
                 <input type="text" name="destination" id="destination" placeholder="Where are you going" value="{{destination}}">
-                <input type="date" name="departureDate" id="departure-date">
+                <input type="date" name="departureDate" id="departure-date" value="{{departureDate}}">
+                <input type="hidden" name="n" value="1">
                 <button type="submit" id="search-button">Search</button>
             </form>
         </section>
@@ -53,6 +54,8 @@
             </a>
             {% endfor %}
             
+            <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
             <div class="pagenation">
                 {% if currentPage!==1 %}
                 <a href="?n={{currentPage-1}}&destination={{destination}}&departureDate={{departureDate}}"> <img src="/leftarrow.svg" alt="" class="leftarrow"> </a>
@@ -71,10 +74,12 @@
             </div>
         {% endif %}
     </main>
+    <script src="/topbtn.js"></script>
 </body>
 </html>
 
-<!--  1. https:// 안전한사이트 만들기  2. css 닷 ...! 3. top버튼 만들기 4. 로고 누르면 홈페이지 5. departureDate 설정하기 6. 시간남으면 로딩페이지 만들기 7. 랭귀지페이지 만들기
+<!--  1. https:// 안전한사이트 만들기  2. css 닷 ...!    6. 시간남으면 로딩페이지 만들기 7. 랭귀지페이지 만들기 9. 디자인 문의해보기 pc / 10.모바일 둘다 GPT 활용하기
 
+<!-- 처리한거 : 3. top버튼 만들기  4. 로고 누르면 홈페이지  5. departureDate 설정하기 8. searchresult 페이지에 상단에 위치한 입력버튼도 되겠끔 하기-->
 
    

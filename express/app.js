@@ -50,7 +50,7 @@ app.get('/destinationName', async (req, res) => {
 app.get('/searchresult', async (req, res) => {
   // user 한테 데이터 받음
   const destination = req.query.destination;
-  const departureDate = req.query.departureDate;
+  const startDate = req.query.departureDate;
   const n = parseInt(req.query.n);
   let startNumber = 1 + (n-1) * 25
 
@@ -67,14 +67,14 @@ app.get('/searchresult', async (req, res) => {
 
   // 추출한 Destination ID로 searchProduct 실행
   // console.log(destinationId)
-  if(destinationId !==undefined){
-  const raw = await requestViator.searchProduct(destinationId.toString(), startNumber)
+  if(destinationId !==undefined || startDate!==undefinded){
+  const raw = await requestViator.searchProduct(destinationId.toString(), startNumber, startDate)
   pageNumber = Math.ceil(raw.totalCount / 25)
   console.log(raw)
-  res.render('searchresult.html', {users: raw.products, destination: destination, totalPage: pageNumber, departureDate : departureDate, currentPage: n})
+  res.render('searchresult.html', {users: raw.products, destination: destination, totalPage: pageNumber, departureDate : startDate, currentPage: n})
   }
   else{
-    res.render('searchresult.html', {users: [],destination: destination, departureDate: departureDate} ) 
+    res.render('searchresult.html', {users: [],destination: destination, departureDate: startDate} ) 
   }
   })
 
