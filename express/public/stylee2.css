@@ -143,6 +143,16 @@ button:hover {
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
+.provider{
+    color: #6e6f7b;
+}
+
+.result-box-price{
+    font-style: bold;
+    font-size: 25px;
+    font-weight: 600;
+}
+
 .noresultimage{
     width: 100%;
     height: 350px;
