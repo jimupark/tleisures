@@ -10,12 +10,12 @@ async function searchProduct(destinationId, startNumber, startDate){
         filtering.startDate = startDate
     }
     
-    const searchResult = await fetch('https://api.sandbox.viator.com/partner/products/search',{
+    const searchResult = await fetch('https://api.viator.com/partner/products/search',{
         method:'post',
         headers:{
             'Accept-Language' : 'en-US',
             'Accept' : 'application/json;version=2.0',
-            'exp-api-key' : '79736e1d-048d-4bea-b428-b45d119d8fbc',
+            'exp-api-key' : 'ca66d5d2-fb96-4cb8-8683-eb825a6e6c84',
             'Content-Type': 'application/json'
         },
         body :JSON.stringify({
@@ -33,12 +33,12 @@ async function searchProduct(destinationId, startNumber, startDate){
 }
 
 async function fetchDestination(){
-    const searchResult = await fetch('https://api.sandbox.viator.com/partner/v1/taxonomy/destinations',{
+    const searchResult = await fetch('https://api.viator.com/partner/v1/taxonomy/destinations',{
         method:'get',
         headers:{
             'Accept-Language' : 'en-US',
             'Accept' : 'application/json;version=2.0',
-            'exp-api-key' : '79736e1d-048d-4bea-b428-b45d119d8fbc',
+            'exp-api-key' : 'ca66d5d2-fb96-4cb8-8683-eb825a6e6c84',
             'Content-Type': 'application/json'
         },
     })
