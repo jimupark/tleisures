@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>Tleisures</h1>
+        <a href="index.html"><h1>Tleisures</h1></a>
     </header>
     <main>
         <section>
@@ -30,7 +30,7 @@
             {% for u in users %}
             <a href="{{u.productUrl}}">
                 <div class="result-box">
-                    <img src="{{u.images[0].variants[2].url}}" alt="Result Image">
+                    <img src="{{u.images[0].variants[12].url}}" alt="Result Image">
                     <div class="result-box-info">
                         <h3>{{u.title}}</h3>
                         {% if u.reviews.combinedAverageRating !==undefined %}
@@ -50,7 +50,9 @@
             </a>
             {% endfor %}
             
-            <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+            <button onclick="topFunction()" id="myBtn" title="Go to top">
+                <img src="/toparrow.svg" alt="" class="toparrow">
+            </button>
 
             <div class="pagenation">
                 {% if currentPage!==1 %}

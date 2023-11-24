@@ -62,6 +62,7 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     text-align: center;
     margin: 20px;
     border-radius: 12px;
@@ -70,7 +71,16 @@ main{
 }
 
 .search-box > input {
-    border: 1px solid #c5c5c5;
+    border: 1px solid #dad55e;
+    box-sizing: border-box;
+    min-width: 94%;
+    width: 97%;
+    height: 40px;
+}
+
+#departure-date{
+    margin: 0;
+    background-color: #fff;
 }
 
 .search-box > button{

@@ -67,7 +67,7 @@ app.get('/searchresult', async (req, res) => {
 
   // 추출한 Destination ID로 searchProduct 실행
   // console.log(destinationId)
-  if(destinationId !==undefined || startDate!==undefinded){
+  if(destinationId !==undefined || startDate!==undefined){
   const raw = await requestViator.searchProduct(destinationId.toString(), startNumber, startDate)
   pageNumber = Math.ceil(raw.totalCount / 25)
   console.log(raw)
