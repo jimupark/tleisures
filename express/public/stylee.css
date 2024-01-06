@@ -173,3 +173,18 @@ footer {
     background-color: #333;
     color: #fff;
 }
+
+.gygwidget{
+    padding: 10px 15px;
+}
+
+.widgets{
+    background-color: #fff;
+}
+
+.widgettitle{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 24px;
+    padding: 20px 15px;
+    text-align: center;
+}
