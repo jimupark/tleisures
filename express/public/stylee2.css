@@ -7,6 +7,13 @@ body {
     font-family: "Avenir LT Pro 95 Black", Arial, sans-serif;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.screensize{
+    width: 100%;
+    max-width: 480px;
     background-image: url("/background-img.jpeg");
 }
 
@@ -34,7 +41,6 @@ main {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    margin: 20px;
     border-radius: 12px;
     background-color: #fff;
     box-shadow: 0px 5px 15px 3px #c5c5c5;

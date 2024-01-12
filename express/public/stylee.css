@@ -7,6 +7,13 @@
 /* Basic styling for mobile layout */
 body {
     font-family: "Avenir LT Pro 95 Black", Arial, sans-serif;
+     display: flex;
+    justify-content: center;
+}
+
+.screensize{
+    width: 100%;
+    max-width: 480px;
     background-image: url("/background-img.jpeg");
 }
 
