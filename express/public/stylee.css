@@ -169,6 +169,7 @@ blockquote{
 .bottomimg{
     box-sizing: border-box;
     width: 100%;
+    max-width: 480px;
     height: 300px;
     object-fit: contain;
     margin-top: 15px;
