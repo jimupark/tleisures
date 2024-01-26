@@ -15,6 +15,7 @@ body {
     width: 100%;
     max-width: 480px;
     background-image: url("/background-img.jpeg");
+    box-shadow: 0 4px 20px rgba(0,0,0,.1);
 }
 
 header {

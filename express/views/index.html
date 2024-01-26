@@ -50,10 +50,10 @@
             <section>
 
                 <form class="search-box" action="/searchresult" method="get">
-                    <input type="text" name="destination" id="destination" placeholder="Where are you going?">
+                    <input type="text" name="destination" id="destination" placeholder="{{content.destinationPlaceHolder}}">
                     <input type="date" name="departureDate" id="departure-date" placeholder="When are you going?" >
                     <input type="hidden" name="n" value="1">
-                    <button type="submit" id="search-button">Search</button>
+                    <button type="submit" id="search-button">{{content.search}}</button>
                 </form>
             </section>
 
@@ -61,12 +61,12 @@
                 <blockquote>
                     <p class="title">Travel & Leisure</p>
                     <img src="/shape1.png" alt="" class="shape1">
-                    <p class="main-quote">Your passport to global fun </p>
+                    <p class="main-quote">{{content.mainQuote}} </p>
                     <img src="/underline.png" alt="" class="underline">
-                    <p class="sub-quote">Every ticket and activity promise a world of fun, excitement, and unforgettable memories</p>
+                    <p class="sub-quote">{{content.subQuote}}</p>
                 </blockquote>
                 <div class="widgets">
-                <p class="widgettitle">Top Destinations</p>
+                <p class="widgettitle">{{content.widgetTitle}}</p>
                 <div class="gygwidget" data-gyg-href="https://widget.getyourguide.com/default/city.frame" data-gyg-location-id="85" data-gyg-locale-code="en-US" data-gyg-widget="city" data-gyg-partner-id="JJ5FA3L"></div>
                 <div class="gygwidget" data-gyg-href="https://widget.getyourguide.com/default/city.frame" data-gyg-location-id="169035" data-gyg-locale-code="en-US" data-gyg-widget="city" data-gyg-partner-id="JJ5FA3L"></div>
                 <div class="gygwidget" data-gyg-href="https://widget.getyourguide.com/default/city.frame" data-gyg-location-id="169042" data-gyg-locale-code="en-US" data-gyg-widget="city" data-gyg-partner-id="JJ5FA3L"></div>

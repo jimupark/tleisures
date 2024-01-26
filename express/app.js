@@ -26,8 +26,17 @@ nunjucks.configure('views', {
 //   res.render('index.html', {users: data})
 // })
 
-app.get('/', (req, res) => {
-  res.render('index.html')
+//1월 16일 여기까지함 path variable,
+app.get('/', (req, res)=>{
+  res.redirect('/en-us')
+}
+)
+
+
+app.get('/:lanreq', (req, res) => {
+  const lanreq = req.params.lanreq
+  const content = require(`./language/index.${lanreq}.js`)
+  res.render('index.html',{content: content})
 })
 
 //viator 한테 destinationName 받아서 user의 localstorage에 저장 / api 만들기
@@ -45,10 +54,10 @@ app.get('/destinationName', async (req, res) => {
   res.json(uniqueArray)
 })
 
-
-
-app.get('/searchresult', async (req, res) => {
+app.get('/:lanreq/searchresult', async (req, res) => {
   // user 한테 데이터 받음
+  const lanreq = req.params.lanreq
+  const content = require(`./language/searchresult.${lanreq}.js`)
   const destination = req.query.destination;
   const startDate = req.query.departureDate;
   const n = parseInt(req.query.n);
@@ -71,10 +80,10 @@ app.get('/searchresult', async (req, res) => {
   const raw = await requestViator.searchProduct(destinationId.toString(), startNumber, startDate)
   pageNumber = Math.ceil(raw.totalCount / 25)
   console.log(raw)
-  res.render('searchresult.html', {users: raw.products, destination: destination, totalPage: pageNumber, departureDate : startDate, currentPage: n})
+  res.render('searchresult.html', {content: content, users: raw.products, destination: destination, totalPage: pageNumber, departureDate : startDate, currentPage: n})
   }
   else{
-    res.render('searchresult.html', {users: [],destination: destination, departureDate: startDate} ) 
+    res.render('searchresult.html', {content: content, users: [],destination: destination, departureDate: startDate} ) 
   }
   })
 

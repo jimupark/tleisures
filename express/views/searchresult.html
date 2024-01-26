@@ -31,7 +31,7 @@
                 <input type="text" name="destination" id="destination" placeholder="Where are you going" value="{{destination}}">
                 <input type="date" name="departureDate" id="departure-date" value="{{departureDate}}">
                 <input type="hidden" name="n" value="1">
-                <button type="submit" id="search-button">Search</button>
+                <button type="submit" id="search-button">{{content.search}}</button>
             </form>
         </section>
 
@@ -50,7 +50,7 @@
                         <h3>{{u.title}}</h3>
                         {% if u.reviews.combinedAverageRating !==undefined %}
                             <div class="result-box-review">
-                                <div class="result-box-review-star">Review Score</div>
+                                <div class="result-box-review-star">{{content.reviewTitle}}</div>
                                 <div class="result-box-review-score">{{u.reviews.combinedAverageRating | round(1)}}</div>
                             </div>
                             {% else %}
