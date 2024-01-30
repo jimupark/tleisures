@@ -36,7 +36,7 @@ app.get('/', (req, res)=>{
 app.get('/:lanreq', (req, res) => {
   const lanreq = req.params.lanreq
   const content = require(`./language/index.${lanreq}.js`)
-  res.render('index.html',{content: content})
+  res.render('index.html',{content: content, lanreq: lanreq})
 })
 
 //viator 한테 destinationName 받아서 user의 localstorage에 저장 / api 만들기
