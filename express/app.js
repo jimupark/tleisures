@@ -1,4 +1,5 @@
 const express = require('express')
+const session = require('express-session')
 const requestViator = require('./requestViator.js')
 const app = express()
 const port = 3000
@@ -7,6 +8,13 @@ const port = 3000
 
 app.use(express.static('public')); //정적 파일 폴더 설정 
 app.set('views', './views'); //
+// session 
+app.use(session({
+  secret: 'MY SECRET 1231413',
+  resave: false,
+  saveUninitialized: true,
+  // cookie: {secure: true},
+}))
 const nunjucks = require('nunjucks')
 nunjucks.configure('views', {
   autoescape: true,
@@ -32,15 +40,10 @@ app.get('/', (req, res)=>{
 }
 )
 
-
-app.get('/:lanreq', (req, res) => {
-  const lanreq = req.params.lanreq
-  const content = require(`./language/index.${lanreq}.js`)
-  res.render('index.html',{content: content, lanreq: lanreq})
-})
-
 //viator 한테 destinationName 받아서 user의 localstorage에 저장 / api 만들기
 app.get('/destinationName', async (req, res) => {
+  const lanreq = req.session.lanreq
+  console.log(lanreq)
   const rawww = await requestViator.fetchDestination()
   let destinationName = []
   for(let i=0; i <rawww.data.length; i++){
@@ -54,9 +57,19 @@ app.get('/destinationName', async (req, res) => {
   res.json(uniqueArray)
 })
 
+app.get('/:lanreq', (req, res) => {
+  const lanreq = req.params.lanreq
+  req.session.lanreq = lanreq
+  const content = require(`./language/index.${lanreq}.js`)
+  res.render('index.html',{content: content, lanreq: lanreq})
+})
+
+
+
 app.get('/:lanreq/searchresult', async (req, res) => {
   // user 한테 데이터 받음
   const lanreq = req.params.lanreq
+  req.session.lanreq = lanreq
   const content = require(`./language/searchresult.${lanreq}.js`)
   const destination = req.query.destination;
   const startDate = req.query.departureDate;
