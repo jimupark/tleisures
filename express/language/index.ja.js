@@ -3,7 +3,8 @@ const content = {
     search: '検索', 
     mainQuote: '世界の楽しみへのパスポート', 
     subQuote: 'TLeisuresでは全世界でアクティビティーやショーが楽しめる各種チケットと忘れられない思い出とサービスをお届けします',
-    widgetTitle: '人気の行き先'
+    widgetTitle: '人気の行き先',
+    widgetLanguage : "ja-JP"
     
 }
 
