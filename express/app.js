@@ -36,7 +36,7 @@ nunjucks.configure('views', {
 
 //1월 16일 여기까지함 path variable,
 app.get('/', (req, res)=>{
-  res.redirect('/en-us')
+  res.redirect('/en-US')
 }
 )
 
@@ -44,7 +44,7 @@ app.get('/', (req, res)=>{
 app.get('/destinationName', async (req, res) => {
   const lanreq = req.session.lanreq
   console.log(lanreq)
-  const rawww = await requestViator.fetchDestination()
+  const rawww = await requestViator.fetchDestination(lanreq)
   let destinationName = []
   for(let i=0; i <rawww.data.length; i++){
     destinationName.push(rawww.data[i].destinationName) 
@@ -77,7 +77,7 @@ app.get('/:lanreq/searchresult', async (req, res) => {
   let startNumber = 1 + (n-1) * 25
 
   //데이터와 FetchDestination 입력하기
-  const raww = await requestViator.fetchDestination()
+  const raww = await requestViator.fetchDestination(lanreq)
 
   // FetchDestination에서 Destination ID 추출하기
   let destinationId
@@ -89,14 +89,14 @@ app.get('/:lanreq/searchresult', async (req, res) => {
 
   // 추출한 Destination ID로 searchProduct 실행
   // console.log(destinationId)
-  if(destinationId !==undefined || startDate!==undefined){
-  const raw = await requestViator.searchProduct(destinationId.toString(), startNumber, startDate)
+  if(destinationId !==undefined){
+  const raw = await requestViator.searchProduct(destinationId.toString(), startNumber, startDate, lanreq)
   pageNumber = Math.ceil(raw.totalCount / 25)
   console.log(raw)
-  res.render('searchresult.html', {content: content, users: raw.products, destination: destination, totalPage: pageNumber, departureDate : startDate, currentPage: n})
+  res.render('searchresult.html', {content: content, users: raw.products, destination: destination, totalPage: pageNumber, departureDate : startDate, currentPage: n, lanreq : lanreq})
   }
   else{
-    res.render('searchresult.html', {content: content, users: [],destination: destination, departureDate: startDate} ) 
+    res.render('searchresult.html', {content: content, users: [],destination: destination, departureDate: startDate, lanreq : lanreq} ) 
   }
   })
 

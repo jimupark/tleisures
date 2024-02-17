@@ -1,6 +1,6 @@
 const fetch = require('node-fetch')
 
-async function searchProduct(destinationId, startNumber, startDate){
+async function searchProduct(destinationId, startNumber, startDate, lanreq){
     let filtering = {}
 
     if(destinationId !== undefined) {
@@ -13,7 +13,7 @@ async function searchProduct(destinationId, startNumber, startDate){
     const searchResult = await fetch('https://api.viator.com/partner/products/search',{
         method:'post',
         headers:{
-            'Accept-Language' : 'en-US',
+            'Accept-Language' : lanreq,
             'Accept' : 'application/json;version=2.0',
             'exp-api-key' : 'ca66d5d2-fb96-4cb8-8683-eb825a6e6c84',
             'Content-Type': 'application/json'
@@ -32,11 +32,11 @@ async function searchProduct(destinationId, startNumber, startDate){
     return data
 }
 
-async function fetchDestination(){
+async function fetchDestination(lanreq){
     const searchResult = await fetch('https://api.viator.com/partner/v1/taxonomy/destinations',{
         method:'get',
         headers:{
-            'Accept-Language' : 'en-US',
+            'Accept-Language' : lanreq,
             'Accept' : 'application/json;version=2.0',
             'exp-api-key' : 'ca66d5d2-fb96-4cb8-8683-eb825a6e6c84',
             'Content-Type': 'application/json'

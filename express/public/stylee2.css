@@ -32,6 +32,13 @@ header img {
     height: auto;
 }
 
+#languageBtn{
+    position: absolute;
+    right: 20px;
+    top: 16px;
+    width: 100px;
+}
+
 main {
     padding: 0 20px 20px 20px;
 }
@@ -213,3 +220,32 @@ button:hover {
     width: 35px;
     padding-bottom: 7px;
   }
+
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 4000;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
