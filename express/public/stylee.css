@@ -31,6 +31,13 @@ header {
     right: 20px;
     top: 16px;
     width: 100px;
+    background-color: transparent;
+}
+
+.globe{
+    width: 24px;
+    height: 24px;
+
 }
 h1{
     font-family: 'Fasthand', cursive; 

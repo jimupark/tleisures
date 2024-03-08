@@ -1,6 +1,7 @@
 const content = {
     search: 'Search', 
-    reviewTitle: "Review Score"
+    reviewTitle: "Review Score",
+    currency : 'JPY',
     
 }
 
