@@ -93,8 +93,8 @@
              </div>
         </div>
         {% else %}
-            <h3>we could not found the treasures matching {{destination}}</h3> 
-            <h4>How about new search?</h4>
+            <h3>{{content.noResult}} {{destination}}</h3> 
+            <h4>{{content.newSearch}}</h4>
             <div class="noresult">
                 <img src="/noresultimage.jpg" alt="" class="noresultimage">
             </div>
